@@ -1,0 +1,40 @@
+# Etap 1: budowanie
+
+# uzywanie obrazu Node.js w wersji Alpine 
+FROM node:alpine AS builder
+
+# instaluje zależności do budowania
+RUN apk add --update curl && \
+    rm -rf /var/cache/apk/*
+
+# katalog roboczy ustawiony na /usr/app
+WORKDIR /usr/app
+
+# kopiuje plik package.json i instaluje zależności
+COPY ./package.json ./
+RUN npm install
+
+# kopiuje index.js do obrazu
+COPY ./index.js ./
+
+# Etap 2: etap Uruchomieniowy
+
+# najnowszy obraz Nginx
+FROM nginx:latest
+
+# skopiuj zbudowane pliki z etapu budowania (builder) do katalogu nginx
+COPY --from=builder /usr/app /usr/share/nginx/html
+
+# ustawiam katalog roboczy na /usr/share/nginx/html
+WORKDIR /usr/share/nginx/html
+
+# sprawdzanie stanu zdrowia (health check)
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:80/ || exit 1
+
+# Udostępnij port 80
+EXPOSE 80
+
+# argument wersji
+ARG VERSION
+ENV VERSION=production.${VERSION:-v1.0}

@@ -1,0 +1,53 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Web App</title>
+</head>
+<body>
+    <h1>Welcome to Simple Web App</h1>
+    <p>This is a simple web application.</p>
+    <p>Server IP Address: [SERVER_IP_ADDRESS]</p>
+    <p>Server Hostname: [SERVER_HOSTNAME]</p>
+    <p>Application Version: [APP_VERSION]</p>
+</body>
+</html>
+
+ -->
+ 
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Web App</title>
+</head>
+<body>
+    <h1>Aplikacja z Nginx</h1>
+
+    <p>Server IP Address: <span id="server-ip">Loading...</span></p>
+    <p>Server Hostname: <span id="server-hostname">Loading...</span></p>
+    <p>Application Version: <span id="app-version">Loading...</span></p>
+
+    <script>
+        // Funkcja do aktualizacji zawartości strony
+        function updatePageInfo() {
+            // Pobranie informacji z serwera
+            fetch('/info')
+                .then(response => response.json())
+                .then(data => {
+                    // Aktualizacja elementów HTML na stronie
+                    document.getElementById('server-ip').innerText = data.ipAddress;
+                    document.getElementById('server-hostname').innerText = data.hostname;
+                    document.getElementById('app-version').innerText = data.version;
+                })
+                .catch(error => console.error('Błąd podczas pobierania informacji:', error));
+        }
+
+        // Wywołanie funkcji po załadowaniu strony
+        window.onload = updatePageInfo;
+    </script>
+</body>
+</html>
+

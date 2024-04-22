@@ -1,0 +1,44 @@
+# Etap 1: etap Budowania
+
+# uzywanie obrazu Node.js w wersji Alpine 
+FROM node:alpine AS builder
+
+# instaluje zależności do budowania
+RUN apk add --update curl && \
+    rm -rf /var/cache/apk/*
+
+# katalog roboczy ustawiony na /usr/app
+WORKDIR /usr/app
+
+# kopiuje plik package.json i instaluje zależności
+COPY ./package.json ./
+RUN npm install
+
+
+# kopiuje index.js do obrazu
+COPY ./index.js ./
+
+# Etap 2: etap Uruchomieniowy
+
+
+FROM alpine
+
+# skopiuje zbudowane pliki z etapu budowania
+COPY --from=builder /usr/app /usr/app
+
+# katalog roboczy na /usr/app
+WORKDIR /usr/app
+
+# instaluje zaleznosci
+RUN apk --no-cache add nodejs npm && \
+    npm install express
+
+
+EXPOSE 8080
+
+#  argument wersji
+ARG VERSION
+ENV VERSION=production.${VERSION:-v1.0}
+
+# uruchom aplikacje
+CMD ["node", "index.js"]
