@@ -20,7 +20,6 @@ COPY ./index.js ./
 
 # Etap 2: etap Uruchomieniowy
 
-
 FROM alpine
 
 # skopiuje zbudowane pliki z etapu budowania
