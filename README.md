@@ -1,27 +1,19 @@
-1. Etap pierwszy - Simpleweb/Dockerfile10
+1. Etap pierwszy - Simpleweb/Dockerfile11
 -polecenie do budowy obrazu i wynik jego działania
 
-![image](https://github.com/miloszpiechota/docker/assets/161620373/94094a1f-13ce-448b-ac82-8039c5d7e207)
+![image](https://github.com/miloszpiechota/docker/assets/161620373/0ac11353-e97c-47ae-808a-bd01745f4e48)
+
 
 -polecenie uruchamiające serwer
-![image](https://github.com/miloszpiechota/docker/assets/161620373/b0fb7067-0654-4a16-8935-27f1afb7501c)
+![image](https://github.com/miloszpiechota/docker/assets/161620373/dfa8350f-95a7-4df9-b8fc-4b0799a05e3b)
 
 -polecenie potwierdzające działanie kontenera i poprawne funkcjonowanieopracowanej aplikacji
-![image](https://github.com/miloszpiechota/docker/assets/161620373/fe2bf854-41af-40d2-92b5-cf6c4f9bf730)
+![image](https://github.com/miloszpiechota/docker/assets/161620373/65a625eb-5dc5-4a47-b141-18c9ebb3204a)
 
-![image](https://github.com/miloszpiechota/docker/assets/161620373/a914533c-f5ab-4334-8de9-184f2d7fe79d)
 
-2. Etap drugi - nie dziala poprawnie Simpleweb/Dockerfile9
--polecenie do budowy obrazu i wynik jego działania
-![image](https://github.com/miloszpiechota/docker/assets/161620373/e091ddfe-830c-4b31-a6b3-94900258492c)
+![image](https://github.com/miloszpiechota/docker/assets/161620373/6b51cf6f-f8d8-44d4-89ac-9637d1a33e50)
 
--polecenie uruchamiające serwer
-![image](https://github.com/miloszpiechota/docker/assets/161620373/017c9ab8-3945-431b-89bd-14addb4ee638)
 
--polecenie potwierdzające działanie kontenera i poprawne funkcjonowanieopracowanej aplikacji
-![image](https://github.com/miloszpiechota/docker/assets/161620373/d5172e3c-9265-4f8b-93a4-70ac5ec1f24b)
-
-![image](https://github.com/miloszpiechota/docker/assets/161620373/4cc0cac4-380a-4241-b704-920509ab1d72)
 
 
 
