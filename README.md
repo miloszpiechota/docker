@@ -1,4 +1,4 @@
-## Table of contents
+# Table of contents
 * Podejście pierwsze Simpleweb/Dockerfile11 (program bez nginx)
 * Podejście drugie Simpleweb/Dockerfile1 (program wykorzystuje nginx)
 
