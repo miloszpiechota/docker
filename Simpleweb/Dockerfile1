@@ -1,0 +1,39 @@
+# Etap pierwszy: Budowanie aplikacji Node.js
+FROM node AS build1
+
+# Ustawienie katalogu roboczego w obrazie
+WORKDIR /usr/app
+
+# Skopiowanie plików aplikacji
+COPY . .
+
+# Instalacja zależności npm
+RUN npm install
+
+# Ustawienie zmiennej środowiskowej wersji aplikacji
+ARG VERSION
+ENV APP_VER=production.${VERSION:-v1.0}
+
+
+
+# Etap drugi: Wykorzystanie obrazu bazowego Nginx
+FROM nginx:latest
+
+# Skopiowanie pliku konfiguracyjnego Nginx obsługującego pliki JavaScript
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Skopiowanie zbudowanej aplikacji z pierwszego etapu do obrazu Nginx
+COPY --from=build1 /usr/app /usr/share/nginx/html
+
+# Ustawienie katalogu roboczego
+WORKDIR /usr/share/nginx/html
+
+# Ustawienie portu na którym będzie działać serwer HTTP
+EXPOSE 80
+
+# Ustawienie strony domyślnej
+CMD ["nginx", "-g", "daemon off;"]
+
+# Health check: sprawdza, czy serwer jest dostępny pod adresem localhost:80
+HEALTHCHECK --interval=30s --timeout=5s \
+  CMD curl --silent --fail localhost:80 || exit 1
