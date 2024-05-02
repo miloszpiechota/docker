@@ -1,4 +1,10 @@
-A. Podejście pierwsze Simpleweb/Dockerfile11 (program bez nginx)
+## Table of contents
+* [A. Podejście pierwsze Simpleweb/Dockerfile11 (program bez nginx)](#Podejście pierwsze Simpleweb/Dockerfile11 (program bez nginx))
+* [B. Podejście drugie Simpleweb/Dockerfile1 (program wykorzystuje nginx)](#Podejście drugie Simpleweb/Dockerfile1 (program wykorzystuje nginx))
+
+
+
+## A. Podejście pierwsze Simpleweb/Dockerfile11 (program bez nginx)
 
 Dockerfile11 (builder) używa obrazu node:alpine w etapie budowania aplikacji Node.js oraz obrazu alpine w etapie końcowym.
 Dudowanie aplikacji Node.js, kopiowanie plików, instalacja Express itp. odbywa się w jednym etapie (builder),
@@ -27,7 +33,7 @@ Dockerfile11 otwiera port 8080, na którym działa serwer Express.
 
 
 
-B. Podejście drugie Simpleweb/Dockerfile1 (program wykorzystuje nginx)
+## B. Podejście drugie Simpleweb/Dockerfile1 (program wykorzystuje nginx)
 
 Dockerfile1 (build1) wykorzystuje obraz bazowy node w etapie budowania aplikacji Node.js oraz obraz nginx w etapie końcowym.
 Budowanie aplikacji Node.js i kopiowanie plików odbywa się w jednym etapie (build1).
@@ -54,5 +60,28 @@ Dockerfile1 otwiera port 80 w obrazie Nginx.
 -wynik działania aplikacji -> strona wyświetla sam kod, więc apliakcja nie działa poprawnie
 
 ![image](https://github.com/miloszpiechota/docker/assets/161620373/9ee2f70d-7a4f-4688-97cc-b7adfe58ddf1)
+
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
+
+## General info
+This project is simple Lorem ipsum dolor generator.
+	
+## Technologies
+Project is created with:
+* Lorem version: 12.3
+* Ipsum version: 2.33
+* Ament library version: 999
+	
+## Setup
+To run this project, install it locally using npm:
+
+```
+$ cd ../lorem
+$ npm install
+$ npm start
+```
 
 
