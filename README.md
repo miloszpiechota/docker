@@ -12,13 +12,19 @@ a następnie wynikowy obraz jest kopiowany do drugiego etapu (alpine).
 
 
 -polecenie uruchamiające serwer
+
 ![image](https://github.com/miloszpiechota/docker/assets/161620373/dfa8350f-95a7-4df9-b8fc-4b0799a05e3b)
 
+
 -polecenie potwierdzające działanie kontenera i poprawne funkcjonowanieopracowanej aplikacji
-![image](https://github.com/miloszpiechota/docker/assets/161620373/65a625eb-5dc5-4a47-b141-18c9ebb3204a)
+
+![image](https://github.com/miloszpiechota/docker/assets/161620373/6b51cf6f-f8d8-44d4-89ac-9637d1a33e50)
+
 
 -wynik działania aplikacji -> 
-![image](https://github.com/miloszpiechota/docker/assets/161620373/6b51cf6f-f8d8-44d4-89ac-9637d1a33e50)
+
+![image](https://github.com/miloszpiechota/docker/assets/161620373/65a625eb-5dc5-4a47-b141-18c9ebb3204a)
+
 
 
 B. Podejście drugie Simpleweb/Dockerfile1 (program wykorzystuje nginx)
