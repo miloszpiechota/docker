@@ -1,6 +1,6 @@
 ## Table of contents
-* [A. Podejście pierwsze Simpleweb/Dockerfile11 (program bez nginx)](#Podejście pierwsze Simpleweb/Dockerfile11 (program bez nginx))
-* [B. Podejście drugie Simpleweb/Dockerfile1 (program wykorzystuje nginx)](#Podejście drugie Simpleweb/Dockerfile1 (program wykorzystuje nginx))
+* (#Podejście pierwsze Simpleweb/Dockerfile11 (program bez nginx))
+* (#Podejście drugie Simpleweb/Dockerfile1 (program wykorzystuje nginx))
 
 
 
