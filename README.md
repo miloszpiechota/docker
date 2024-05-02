@@ -1,10 +1,10 @@
 A. Podejście pierwsze Simpleweb/Dockerfile11 (program bez nginx)
 
--Dockerfile11 (builder) używa obrazu node:alpine w etapie budowania aplikacji Node.js oraz obrazu alpine w etapie końcowym.
--Dudowanie aplikacji Node.js, kopiowanie plików, instalacja Express itp. odbywa się w jednym etapie (builder),
+Dockerfile11 (builder) używa obrazu node:alpine w etapie budowania aplikacji Node.js oraz obrazu alpine w etapie końcowym.
+Dudowanie aplikacji Node.js, kopiowanie plików, instalacja Express itp. odbywa się w jednym etapie (builder),
 a następnie wynikowy obraz jest kopiowany do drugiego etapu (alpine).
--Dockerfile11 instaluje Node.js, npm i Express w obrazie końcowym, co sprawia, że obraz jest większy, 
--Dockerfile11 otwiera port 8080, na którym działa serwer Express.
+Dockerfile11 instaluje Node.js, npm i Express w obrazie końcowym, co sprawia, że obraz jest większy, 
+Dockerfile11 otwiera port 8080, na którym działa serwer Express.
 1. Etap pierwszy - Simpleweb/Dockerfile11
 -polecenie do budowy obrazu i wynik jego działania
 
@@ -29,11 +29,11 @@ a następnie wynikowy obraz jest kopiowany do drugiego etapu (alpine).
 
 B. Podejście drugie Simpleweb/Dockerfile1 (program wykorzystuje nginx)
 
--Dockerfile1 (build1) wykorzystuje obraz bazowy node w etapie budowania aplikacji Node.js oraz obraz nginx w etapie końcowym.
--Budowanie aplikacji Node.js i kopiowanie plików odbywa się w jednym etapie (build1).
--Dockerfile1 nie instaluje Node.js ani Express w obrazie końcowym. Zamiast tego, wykorzystuje gotowy obraz nginx do serwowania
+Dockerfile1 (build1) wykorzystuje obraz bazowy node w etapie budowania aplikacji Node.js oraz obraz nginx w etapie końcowym.
+Budowanie aplikacji Node.js i kopiowanie plików odbywa się w jednym etapie (build1).
+Dockerfile1 nie instaluje Node.js ani Express w obrazie końcowym. Zamiast tego, wykorzystuje gotowy obraz nginx do serwowania
 plików statycznych i konfiguracji serwera HTTP.
--Dockerfile1 otwiera port 80 w obrazie Nginx.
+Dockerfile1 otwiera port 80 w obrazie Nginx.
 
 1. Etap pierwszy - Simpleweb/Dockerfile11
 -polecenie do budowy obrazu i wynik jego działania
