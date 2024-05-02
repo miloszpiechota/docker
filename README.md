@@ -21,7 +21,7 @@ Dockerfile11 otwiera port 8080, na którym działa serwer Express.
 ![image](https://github.com/miloszpiechota/docker/assets/161620373/6b51cf6f-f8d8-44d4-89ac-9637d1a33e50)
 
 
--wynik działania aplikacji -> 
+-wynik działania aplikacji -> aplikacja zdaje się działać poprawnie
 
 ![image](https://github.com/miloszpiechota/docker/assets/161620373/65a625eb-5dc5-4a47-b141-18c9ebb3204a)
 
