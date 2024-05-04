@@ -1,39 +1,37 @@
-# Etap pierwszy: Budowanie aplikacji Node.js
+# Stage 1: Build the Node.js application
 FROM node AS build1
 
-# Ustawienie katalogu roboczego w obrazie
+# Set the working directory in the image
 WORKDIR /usr/app
 
-# Skopiowanie plików aplikacji
+# Copy application files
 COPY . .
 
-# Instalacja zależności npm
+# Install npm dependencies
 RUN npm install
 
-# Ustawienie zmiennej środowiskowej wersji aplikacji
+# Set the environment variable for application version
 ARG VERSION
 ENV APP_VER=production.${VERSION:-v1.0}
 
-
-
-# Etap drugi: Wykorzystanie obrazu bazowego Nginx
+# Stage 2: Utilize the Nginx base image
 FROM nginx:latest
 
-# Skopiowanie pliku konfiguracyjnego Nginx obsługującego pliki JavaScript
+# Copy the Nginx configuration file handling JavaScript files
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Skopiowanie zbudowanej aplikacji z pierwszego etapu do obrazu Nginx
+# Copy the built application from the first stage to the Nginx image
 COPY --from=build1 /usr/app /usr/share/nginx/html
 
-# Ustawienie katalogu roboczego
+# Set the working directory
 WORKDIR /usr/share/nginx/html
 
-# Ustawienie portu na którym będzie działać serwer HTTP
+# Set the port on which the HTTP server will run
 EXPOSE 80
 
-# Ustawienie strony domyślnej
+# Set the default page
 CMD ["nginx", "-g", "daemon off;"]
 
-# Health check: sprawdza, czy serwer jest dostępny pod adresem localhost:80
+# Health check: check if the server is available at localhost:80
 HEALTHCHECK --interval=30s --timeout=5s \
   CMD curl --silent --fail localhost:80 || exit 1

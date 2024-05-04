@@ -4,31 +4,34 @@ const os = require('os');
 const app = express();
 const port = 8080;
 
-// Definicja ścieżki głównej ("/") 
+// Define the main path ("/")
 app.get('/', (req, res) => {
-    let response = `Adres IP serwera: ${getIPAddress()}\n`;
-    response += `Nazwa serwera (hostname): ${os.hostname()}\n`;
-    response += `Wersja aplikacji: ${process.env.VERSION}\n`;
-    // Wysyłamy odpowiedź jako HTML
+    // Construct the response with server IP address, hostname, and application version
+    let response = `Server IP Address: ${getIPAddress()}\n`;
+    response += `Server Name (hostname): ${os.hostname()}\n`;
+    response += `Application Version: ${process.env.VERSION}\n`;
+    // Send the response as HTML
     res.send(response);
 });
 
-// Serwowanie pliku HTML
+// Serve HTML file
 app.use(express.static('public'));
 
+// Listen on port and log a message upon server start
 app.listen(port, () => {
-    console.log(`Aplikacja jest dostępna na porcie ${port}`);
+    console.log(`The application is available on port ${port}`);
 });
 
+// Function to get the server IP address
 function getIPAddress() {
-    // Pobierz interfejsy sieciowe
+    // Get network interfaces
     const interfaces = os.networkInterfaces();
     for (const dev in interfaces) {
-        // Filtruj adresy IPv4, wykluczając adresy wewnętrzne
+        // Filter IPv4 addresses, excluding internal addresses
         const iface = interfaces[dev].filter(details => details.family === 'IPv4' && !details.internal);
-        // Zwróć pierwszy znaleziony adres
+        // Return the first found address
         if (iface.length > 0) return iface[0].address;
     }
-    // Zwróć wartość domyślną
+    // Return default value
     return '0.0.0.0';
 }
